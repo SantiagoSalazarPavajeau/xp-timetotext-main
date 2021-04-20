@@ -4,7 +4,7 @@ function time2text(time) {
   let [hourString, minutesString] = time.split(":");
 
   let hour = parseInt(hourString);
-  let hourConvert = hourConversionHelper(hour);
+  let hourConvert = numberConversionHelper(hour);
   let minuteConvert = minuteConversionHelper(minutesString);
 
   if ((hourString === "00" || hourString === "24") && minutesString === "00") {
@@ -75,13 +75,13 @@ function time2text(time) {
     } else if (hour === 23) {
       return "twenty to midnight";
     } else if (hour >= 17) {
-      return `twenty to ${hourConversionHelper(hour + 1)} in the evening`;
+      return `twenty to ${numberConversionHelper(hour + 1)} in the evening`;
     } else if (hour >= 12) {
       // afternoon and quarter past
-      return `twenty to ${hourConversionHelper(hour + 1)} in the afternoon`;
+      return `twenty to ${numberConversionHelper(hour + 1)} in the afternoon`;
     } else if (hour < 12) {
       // morning and quarter past
-      return `twenty to ${hourConversionHelper(hour + 1)} in the morning`;
+      return `twenty to ${numberConversionHelper(hour + 1)} in the morning`;
     }
   } else if (minutesString === "45") {
     if (hour === 23) {
@@ -90,13 +90,13 @@ function time2text(time) {
     } else if (hour === 11) {
       return "quarter to noon";
     } else if (hour >= 17) {
-      return `quarter to ${hourConversionHelper(hour + 1)} in the evening`;
+      return `quarter to ${numberConversionHelper(hour + 1)} in the evening`;
     } else if (hour >= 12) {
       // afternoon and quarter past
-      return `quarter to ${hourConversionHelper(hour + 1)} in the afternoon`;
+      return `quarter to ${numberConversionHelper(hour + 1)} in the afternoon`;
     } else if (hour < 12) {
       // morning and quarter past
-      return `quarter to ${hourConversionHelper(hour + 1)} in the morning`;
+      return `quarter to ${numberConversionHelper(hour + 1)} in the morning`;
     }
   } else if (minutesString === "50") {
     if (hour === 11) {
@@ -104,13 +104,13 @@ function time2text(time) {
     } else if (hour === 23) {
       return "ten to midnight";
     } else if (hour >= 17) {
-      return `ten to ${hourConversionHelper(hour + 1)} in the evening`;
+      return `ten to ${numberConversionHelper(hour + 1)} in the evening`;
     } else if (hour >= 12) {
       // afternoon and quarter past
-      return `ten to ${hourConversionHelper(hour + 1)} in the afternoon`;
+      return `ten to ${numberConversionHelper(hour + 1)} in the afternoon`;
     } else if (hour < 12) {
       // morning and quarter past
-      return `ten to ${hourConversionHelper(hour + 1)} in the morning`;
+      return `ten to ${numberConversionHelper(hour + 1)} in the morning`;
     }
   } else if (minutesString === "55") {
     if (hour === 11) {
@@ -118,13 +118,13 @@ function time2text(time) {
     } else if (hour === 23) {
       return "five to midnight";
     } else if (hour >= 17) {
-      return `five to ${hourConversionHelper(hour + 1)} in the evening`;
+      return `five to ${numberConversionHelper(hour + 1)} in the evening`;
     } else if (hour >= 12) {
       // afternoon and quarter past
-      return `five to ${hourConversionHelper(hour + 1)} in the afternoon`;
+      return `five to ${numberConversionHelper(hour + 1)} in the afternoon`;
     } else if (hour < 12) {
       // morning and quarter past
-      return `five to ${hourConversionHelper(hour + 1)} in the morning`;
+      return `five to ${numberConversionHelper(hour + 1)} in the morning`;
     }
   } else if (hour < 12) {
     return `${hourConvert} ${minuteConvert} in the morning`;
@@ -180,47 +180,27 @@ function minuteConversionHelper(minutes) {
         return "nineteen";
     }
   } else if (minutes > 19) {
-    let secondMinuteNumber = minutes[1];
 
     switch (minutes[0]) {
       case "2":
-        return "twenty" + secondMinuteConversionHelper(minutes[1]);
+        if(minutes[1]!= 0){
+          return "twenty" + "-" + numberConversionHelper(parseInt(minutes[1]));
+        }else{
+          return "twenty"
+        }
       case "3":
-        return "thirty" + secondMinuteConversionHelper(minutes[1]);
+        return "thirty" + "-" + numberConversionHelper(parseInt(minutes[1]));
       case "4":
-        return "fourty" + secondMinuteConversionHelper(minutes[1]);
+        return "fourty" + "-" + numberConversionHelper(parseInt(minutes[1]));
       case "5":
-        return "fifty" + secondMinuteConversionHelper(minutes[1]);
+        return "fifty" + "-" + numberConversionHelper(parseInt(minutes[1]));
     }
   }
 }
 
-function secondMinuteConversionHelper(minuteNumber) {
-  switch (minuteNumber) {
-    case "0":
-      return "";
-    case "1":
-      return "-one";
-    case "2":
-      return "-two";
-    case "3":
-      return "-three";
-    case "4":
-      return "-four";
-    case "5":
-      return "-five";
-    case "6":
-      return "-six";
-    case "7":
-      return "-seven";
-    case "8":
-      return "-eight";
-    case "9":
-      return "-nine";
-  }
-}
 
-function hourConversionHelper(hour) {
+
+function numberConversionHelper(hour) {
   switch (hour) {
     case 0:
       return "twelve";
