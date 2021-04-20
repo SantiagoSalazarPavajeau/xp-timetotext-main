@@ -1,0 +1,14 @@
+{
+  "name": "time2text",
+  "version": "1.0.0",
+  "description": "Create a function (time2text) that converts time strings (formatted as 'HH:MM') to human readable text",
+  "main": "time2text.js",
+  "scripts": {
+    "test:time": "node test/verify.js",
+    "test:money": "node test/verify2.js",
+    "start:watch": "nodemon test/verify.js"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {}
+}
