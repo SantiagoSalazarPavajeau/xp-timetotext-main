@@ -11,122 +11,142 @@ function time2text(time) {
     return "midnight";
   } else if (hour === 12 && minutesString === "00") {
     return "noon";
-  }else if (minutesString === "05"){
+  } else if (minutesString === "05") {
     if (hour === 12) {
-      return "five past noon"
+      return "five past noon";
     } else if (hourString === "00") {
-      return "five past midnight"
-    } else if(hour > 17){
+      return "five past midnight";
+    } else if (hour > 17) {
       return `five past ${hourConvert} in the evening`;
-    }else if(hour > 12){// afternoon and quarter past
+    } else if (hour > 12) {
+      // afternoon and quarter past
       return `five past ${hourConvert} in the afternoon`;
-    }else if(hour < 12){ // morning and quarter past
+    } else if (hour < 12) {
+      // morning and quarter past
       return `five past ${hourConvert} in the morning`;
     }
-} else if (minutesString === "10"){
+  } else if (minutesString === "10") {
     if (hourString === "00") {
-      return "ten past midnight"
+      return "ten past midnight";
     } else if (hour === 12) {
-      return "ten past noon"
-    }else if(hour >= 18){
+      return "ten past noon";
+    } else if (hour >= 18) {
       return `ten past ${hourConvert} in the evening`;
-    }else if(hour > 12){// afternoon and quarter past
+    } else if (hour > 12) {
+      // afternoon and quarter past
       return `ten past ${hourConvert} in the afternoon`;
-    }else if(hour < 12){ // morning and quarter past
+    } else if (hour < 12) {
+      // morning and quarter past
       return `ten past ${hourConvert} in the morning`;
     }
-} else if (minutesString === "15"){
+  } else if (minutesString === "15") {
     if (hour === 12) {
-      return "quarter past noon"
+      return "quarter past noon";
     } else if (hourString === "00") {
-      return "quarter past midnight"
-    } else if(hour > 17){
+      return "quarter past midnight";
+    } else if (hour > 17) {
       return `quarter past ${hourConvert} in the evening`;
-    }else if(hour > 12){// afternoon and quarter past
+    } else if (hour > 12) {
+      // afternoon and quarter past
       return `quarter past ${hourConvert} in the afternoon`;
-    }else if(hour < 12){ // morning and quarter past
+    } else if (hour < 12) {
+      // morning and quarter past
       return `quarter past ${hourConvert} in the morning`;
     }
-}else if (minutesString === "20"){
+  } else if (minutesString === "20") {
     if (hour === 12) {
-      return "twenty past noon"
+      return "twenty past noon";
     } else if (hourString === "00") {
-      return "twenty past midnight"
-    } else if(hour > 17){
+      return "twenty past midnight";
+    } else if (hour > 17) {
       return `twenty past ${hourConvert} in the evening`;
-    }else if(hour > 12){// afternoon and quarter past
+    } else if (hour > 12) {
+      // afternoon and quarter past
       return `twenty past ${hourConvert} in the afternoon`;
-    }else if(hour < 12){ // morning and quarter past
+    } else if (hour < 12) {
+      // morning and quarter past
       return `twenty past ${hourConvert} in the morning`;
     }
-} else if (minutesString === "30"){
-    if(hour >= 18){
+  } else if (minutesString === "30") {
+    if (hour >= 18) {
       return `half past ${hourConvert} in the evening`;
     } else if (hourString === "00") {
-      return "half past midnight"
-    }else if(hour === 12){// afternoon and quarter past
-        return `half past noon`;
-      }else if(hour > 12){// afternoon and quarter past
+      return "half past midnight";
+    } else if (hour === 12) {
+      // afternoon and quarter past
+      return `half past noon`;
+    } else if (hour > 12) {
+      // afternoon and quarter past
       return `half past ${hourConvert} in the afternoon`;
-    }else if(hour < 12){ // morning and quarter past
+    } else if (hour < 12) {
+      // morning and quarter past
       return `half past ${hourConvert} in the morning`;
     }
-}else if (minutesString === "40"){
-    if(hour === 11){// afternoon and quarter past
-        return `twenty to noon`;
-    } else if (hour === 23) {
-      return "twenty to midnight"
-    }else if(hour >= 17){
-      return `twenty to ${hourConversionHelper(hour +1) } in the evening`;
-    }else if(hour >= 12){// afternoon and quarter past
-      return `twenty to ${hourConversionHelper(hour +1)} in the afternoon`;
-    }else if(hour < 12){ // morning and quarter past
-      return `twenty to ${hourConversionHelper(hour +1)} in the morning`;
-    }
-}else if (minutesString === "45"){
-    if(hour === 23){// afternoon and quarter past
-        return `quarter to midnight`;
-    } else if (hour === 11) {
-      return "quarter to noon"
-    }else if(hour >= 17){
-      return `quarter to ${hourConversionHelper(hour +1) } in the evening`;
-    }else if(hour >= 12){// afternoon and quarter past
-      return `quarter to ${hourConversionHelper(hour +1)} in the afternoon`;
-    }else if(hour < 12){ // morning and quarter past
-      return `quarter to ${hourConversionHelper(hour +1)} in the morning`;
-    }
-}else if (minutesString === "50"){
+  } else if (minutesString === "40") {
     if (hour === 11) {
-      return "ten to noon"
+      // afternoon and quarter past
+      return `twenty to noon`;
     } else if (hour === 23) {
-      return "ten to midnight"
-    } else if(hour >= 17){
-      return `ten to ${hourConversionHelper(hour +1) } in the evening`;
-    }else if(hour >= 12){// afternoon and quarter past
-      return `ten to ${hourConversionHelper(hour +1)} in the afternoon`;
-    }else if(hour < 12){ // morning and quarter past
-      return `ten to ${hourConversionHelper(hour +1)} in the morning`;
+      return "twenty to midnight";
+    } else if (hour >= 17) {
+      return `twenty to ${hourConversionHelper(hour + 1)} in the evening`;
+    } else if (hour >= 12) {
+      // afternoon and quarter past
+      return `twenty to ${hourConversionHelper(hour + 1)} in the afternoon`;
+    } else if (hour < 12) {
+      // morning and quarter past
+      return `twenty to ${hourConversionHelper(hour + 1)} in the morning`;
     }
-}else if (minutesString === "55"){
-    if (hour === 11){
-        return "five to noon"
+  } else if (minutesString === "45") {
+    if (hour === 23) {
+      // afternoon and quarter past
+      return `quarter to midnight`;
+    } else if (hour === 11) {
+      return "quarter to noon";
+    } else if (hour >= 17) {
+      return `quarter to ${hourConversionHelper(hour + 1)} in the evening`;
+    } else if (hour >= 12) {
+      // afternoon and quarter past
+      return `quarter to ${hourConversionHelper(hour + 1)} in the afternoon`;
+    } else if (hour < 12) {
+      // morning and quarter past
+      return `quarter to ${hourConversionHelper(hour + 1)} in the morning`;
+    }
+  } else if (minutesString === "50") {
+    if (hour === 11) {
+      return "ten to noon";
     } else if (hour === 23) {
-      return "five to midnight"
-    }else if(hour >= 17){
-      return `five to ${hourConversionHelper(hour +1) } in the evening`;
-    }else if(hour >= 12){// afternoon and quarter past
-      return `five to ${hourConversionHelper(hour +1)} in the afternoon`;
-    }else if(hour < 12){ // morning and quarter past
-      return `five to ${hourConversionHelper(hour +1)} in the morning`;
+      return "ten to midnight";
+    } else if (hour >= 17) {
+      return `ten to ${hourConversionHelper(hour + 1)} in the evening`;
+    } else if (hour >= 12) {
+      // afternoon and quarter past
+      return `ten to ${hourConversionHelper(hour + 1)} in the afternoon`;
+    } else if (hour < 12) {
+      // morning and quarter past
+      return `ten to ${hourConversionHelper(hour + 1)} in the morning`;
     }
-}else if (hour < 12) {
+  } else if (minutesString === "55") {
+    if (hour === 11) {
+      return "five to noon";
+    } else if (hour === 23) {
+      return "five to midnight";
+    } else if (hour >= 17) {
+      return `five to ${hourConversionHelper(hour + 1)} in the evening`;
+    } else if (hour >= 12) {
+      // afternoon and quarter past
+      return `five to ${hourConversionHelper(hour + 1)} in the afternoon`;
+    } else if (hour < 12) {
+      // morning and quarter past
+      return `five to ${hourConversionHelper(hour + 1)} in the morning`;
+    }
+  } else if (hour < 12) {
     return `${hourConvert} ${minuteConvert} in the morning`;
   } else if (hour < 18) {
-
     return `${hourConvert} ${minuteConvert} in the afternoon`;
   } else if (hour >= 18) {
     return `${hourConvert} ${minuteConvert} in the evening`;
-  } 
+  }
 }
 
 function minuteConversionHelper(minutes) {
@@ -186,14 +206,13 @@ function minuteConversionHelper(minutes) {
       case "5":
         return "fifty" + secondMinuteConversionHelper(minutes[1]);
     }
-
   }
 }
 
-function secondMinuteConversionHelper(minuteNumber) {  
+function secondMinuteConversionHelper(minuteNumber) {
   switch (minuteNumber) {
     case "0":
-      return ""
+      return "";
     case "1":
       return "-one";
     case "2":
