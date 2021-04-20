@@ -9,14 +9,20 @@ function time2text(time) {
   let hourConvert = hourConversionHelper(hour);
   let minuteConvert = minuteConversionHelper(minutesString);
 
-  if (hourString === "00" && minutesString === "00") {
+  if ((hourString === "00" || hourString === "24") && minutesString === "00") {
     console.log("midnight");
     return "midnight";
   } else if (hour === 12 && minutesString === "00") {
     console.log("noon");
     return "noon";
   }else if (minutesString === "05"){
-    if(hour > 18){
+    if (hour === 12) {
+      console.log("five past noon")
+      return "five past noon"
+    } else if (hourString === "00") {
+      console.log("five past midnight");
+      return "five past midnight"
+    } else if(hour > 17){
       console.log("five past", hourConvert, "in the evening");
       return `five past ${hourConvert} in the evening`;
     }else if(hour > 12){// afternoon and quarter past
@@ -27,7 +33,13 @@ function time2text(time) {
       return `five past ${hourConvert} in the morning`;
     }
 } else if (minutesString === "10"){
-    if(hour > 18){
+    if (hourString === "00") {
+      console.log("ten past midnight")
+      return "ten past midnight"
+    } else if (hour === 12) {
+      console.log("ten past noon")
+      return "ten past noon"
+    }else if(hour >= 18){
       console.log("ten past", hourConvert, "in the evening");
       return `ten past ${hourConvert} in the evening`;
     }else if(hour > 12){// afternoon and quarter past
@@ -38,7 +50,13 @@ function time2text(time) {
       return `ten past ${hourConvert} in the morning`;
     }
 } else if (minutesString === "15"){
-    if(hour > 18){
+    if (hour === 12) {
+      console.log("quarter past noon");
+      return "quarter past noon"
+    } else if (hourString === "00") {
+      console.log("quarter past midnight")
+      return "quarter past midnight"
+    } else if(hour > 17){
       console.log("quarter past", hourConvert, "in the evening");
       return `quarter past ${hourConvert} in the evening`;
     }else if(hour > 12){// afternoon and quarter past
@@ -49,7 +67,13 @@ function time2text(time) {
       return `quarter past ${hourConvert} in the morning`;
     }
 }else if (minutesString === "20"){
-    if(hour > 18){
+    if (hour === 12) {
+      console.log("twenty past noon")
+      return "twenty past noon"
+    } else if (hourString === "00") {
+      console.log("twenty past midnight")
+      return "twenty past midnight"
+    } else if(hour > 17){
       console.log("twenty past", hourConvert, "in the evening");
       return `twenty past ${hourConvert} in the evening`;
     }else if(hour > 12){// afternoon and quarter past
@@ -60,9 +84,12 @@ function time2text(time) {
       return `twenty past ${hourConvert} in the morning`;
     }
 } else if (minutesString === "30"){
-    if(hour > 18){
+    if(hour >= 18){
       console.log("half past", hourConvert, "in the evening");
       return `half past ${hourConvert} in the evening`;
+    } else if (hourString === "00") {
+      console.log("half past midnight")
+      return "half past midnight"
     }else if(hour === 12){// afternoon and quarter past
         console.log("half past noon");
         return `half past noon`;
@@ -77,10 +104,13 @@ function time2text(time) {
     if(hour === 11){// afternoon and quarter past
         console.log("twenty to noon");
         return `twenty to noon`;
-    }else if(hour > 18){
+    } else if (hour === 23) {
+      console.log("twenty to midnight")
+      return "twenty to midnight"
+    }else if(hour >= 17){
       console.log("twenty to", hourConversionHelper(hour +1), "in the evening");
       return `twenty to ${hourConversionHelper(hour +1) } in the evening`;
-    }else if(hour > 12){// afternoon and quarter past
+    }else if(hour >= 12){// afternoon and quarter past
       console.log("twenty to", hourConversionHelper(hour +1),  "in the afternoon");
       return `twenty to ${hourConversionHelper(hour +1)} in the afternoon`;
     }else if(hour < 12){ // morning and quarter past
@@ -88,13 +118,16 @@ function time2text(time) {
       return `twenty to ${hourConversionHelper(hour +1)} in the morning`;
     }
 }else if (minutesString === "45"){
-    if(hour === 11){// afternoon and quarter past
+    if(hour === 23){// afternoon and quarter past
         console.log("quarter to midnight");
         return `quarter to midnight`;
-    }else if(hour > 18){
+    } else if (hour === 11) {
+      console.log("quarter to noon")
+      return "quarter to noon"
+    }else if(hour >= 17){
       console.log("quarter to", hourConversionHelper(hour +1), "in the evening");
       return `quarter to ${hourConversionHelper(hour +1) } in the evening`;
-    }else if(hour > 12){// afternoon and quarter past
+    }else if(hour >= 12){// afternoon and quarter past
       console.log("quarter to", hourConversionHelper(hour +1),  "in the afternoon");
       return `quarter to ${hourConversionHelper(hour +1)} in the afternoon`;
     }else if(hour < 12){ // morning and quarter past
@@ -102,10 +135,16 @@ function time2text(time) {
       return `quarter to ${hourConversionHelper(hour +1)} in the morning`;
     }
 }else if (minutesString === "50"){
-    if(hour > 18){
+    if (hour === 11) {
+      console.log("ten to noon")
+      return "ten to noon"
+    } else if (hour === 23) {
+      console.log("ten to midnight")
+      return "ten to midnight"
+    } else if(hour >= 17){
       console.log("ten to", hourConversionHelper(hour +1), "in the evening");
       return `ten to ${hourConversionHelper(hour +1) } in the evening`;
-    }else if(hour > 12){// afternoon and quarter past
+    }else if(hour >= 12){// afternoon and quarter past
       console.log("ten to", hourConversionHelper(hour +1),  "in the afternoon");
       return `ten to ${hourConversionHelper(hour +1)} in the afternoon`;
     }else if(hour < 12){ // morning and quarter past
@@ -113,13 +152,16 @@ function time2text(time) {
       return `ten to ${hourConversionHelper(hour +1)} in the morning`;
     }
 }else if (minutesString === "55"){
-    if( hour === 11){
+    if (hour === 11){
         console.log("five to noon")
         return "five to noon"
-    }else if(hour > 18){
+    } else if (hour === 23) {
+      console.log("five to midnight")
+      return "five to midnight"
+    }else if(hour >= 17){
       console.log("five to", hourConversionHelper(hour +1), "in the evening");
       return `five to ${hourConversionHelper(hour +1) } in the evening`;
-    }else if(hour > 12){// afternoon and quarter past
+    }else if(hour >= 12){// afternoon and quarter past
       console.log("five to", hourConversionHelper(hour +1),  "in the afternoon");
       return `five to ${hourConversionHelper(hour +1)} in the afternoon`;
     }else if(hour < 12){ // morning and quarter past
