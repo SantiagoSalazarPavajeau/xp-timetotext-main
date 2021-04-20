@@ -17,7 +17,6 @@ function money2text(time) {
 
   console.log(time)
   console.log(firstNumber, unit, centsConversion)
-//   console.log(dollar)
   if( dollar > 1000){
     return firstNumber + " " + unit + " dollars and " + centsConversion
   }else if( dollar >= 100){
@@ -26,8 +25,6 @@ function money2text(time) {
     console.log(unit + " " + firstNumber + " " + centsConversion)
     return unit + " " + firstNumber + " " + "dollars and" + " " + centsConversion
   } 
-  // return a concatenated string with values
-  //
 }
 
 function convertUnit(dollar) {
