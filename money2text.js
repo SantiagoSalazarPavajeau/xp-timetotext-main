@@ -4,9 +4,48 @@ function money2text(time) {
   let [dollar, cents] = time.split(".");
   let firstNumber = firstNumberToText(dollar[0]);
   let unit = convertUnit(dollar);
+  let centsConversion;
 
-  
+  if(cents >= 20){
+    centsConversion = convertTwentyToNinety(cents) + " " + firstNumberToText(cents[1]) + " cents"
+  }else if(cents > 1){
+    centsConversion = convertTenTo19(cents) + "cents"
+  }else{
+      centsConversion = "dollars"
+  }
+
+
+  console.log(time)
+  console.log(firstNumber, unit, centsConversion)
+//   console.log(dollar)
+  if( dollar > 1000){
+    return firstNumber + " " + unit + " dollars and " + centsConversion
+  }else if( dollar >= 100){
+    return firstNumber + " " + unit + " " + centsConversion
+  }else if ( dollar < 99) {
+    console.log(unit + " " + firstNumber + " " + centsConversion)
+    return unit + " " + firstNumber + " " + "dollars and" + " " + centsConversion
+  } 
+  // return a concatenated string with values
+  //
 }
+
+function convertUnit(dollar) {
+    switch (dollar.length) {
+      case 2:
+          if(dollar[0] >= 2){
+              return convertTwentyToNinety(dollar)
+          }else if (dollar[0] === 1){
+              return convertTenTo19(dollar)
+          }
+      case 3:
+        return "hundred and " + convertTwentyToNinety(dollar.substring(1, dollar.length)) + " " + firstNumberToText(dollar[2]);
+      case 4:
+        return "thousand";
+      default:
+        return dollar;
+    }
+  }
 
 function firstNumberToText(number) {
   switch (number) {
@@ -51,17 +90,31 @@ function convertTwentyToNinety(dollar) {
     }
 }
 
-function convertUnit(dollar) {
-  switch (dollar.length) {
-    case 2:
-        return convertTwentyToNinety(dollar)
-    case 3:
-      return "hundred";
-    case 4:
-      return "thousand";
-    default:
-      return dollar;
-  }
+function convertTenTo19(dollar){
+    switch(dollar){
+        case "10":
+            return "ten"
+        case "11":
+            return "eleven"
+        case "12":
+            return "twelve"
+        case "13":
+            return "thirteen"
+        case "14":
+            return "fourteen"
+        case "15":
+            return "fifteen"
+        case "16":
+            return "sixteen"
+        case "17":
+            return "seventeen"
+        case "18":
+            return "eighteen"
+        case "19":
+            return "nineteen"
+    }
 }
+
+
 
 module.exports = money2text;
