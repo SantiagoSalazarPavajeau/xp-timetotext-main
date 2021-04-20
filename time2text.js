@@ -1,29 +1,73 @@
 "use strict";
 
 function time2text(time) {
-  let [hourString, secondsString] = time.split(":");
+  let [hourString, minutesString] = time.split(":");
 
   let hour = parseInt(hourString);
-  let seconds = parseInt(secondsString);
+//   let minutes = parseInt(minutesString);
 
   let hourConvert = hourConversionHelper(hour);
+  let minuteConvert = minuteConversionHelper(minutesString);
 
-  if (hourString === "00" && secondsString === "00") {
+  if (hourString === "00" && minutesString === "00") {
     console.log("midnight");
     return "midnight";
-  } else if (hour === 12 && secondsString === "00") {
+  } else if (hour === 12 && minutesString === "00") {
     console.log("noon");
     return "noon";
   } else if (hour < 12) {
-    console.log(hour, seconds, "in the morning");
-    return `${hour}, ${seconds} in the morning`;
+    console.log(hourConvert, minuteConvert, "in the morning");
+    return `${hourConvert}, ${minuteConvert} in the morning`;
   } else if (hour < 18) {
-    console.log(hour, seconds, "in the afternoon");
-    return `${hour}, ${seconds} in the afternoon`;
+    console.log(hourConvert, minuteConvert, "in the afternoon");
+    return `${hourConvert}, ${minuteConvert} in the afternoon`;
   } else if (hour >= 18) {
-    console.log(hourConvert, seconds, "in the evening");
-    return `${hourConvert}, ${seconds} in the evening`;
+    console.log(hourConvert, minuteConvert, "in the evening");
+    return `${hourConvert}, ${minuteConvert} in the evening`;
   }
+}
+
+function minuteConversionHelper(minutes){
+    switch(minutes){
+        case "01":
+            return "oh one"
+        case "02":
+            return "oh two"
+        case "03":
+            return "oh three"
+        case "04":
+            return "oh four"
+        case "05":
+            return "oh five"
+        case "06":
+            return "oh six"
+        case "07":
+            return "oh seven"
+        case "08":
+            return "oh eight"
+        case "09":
+            return "oh nine"
+        case "10":
+            return "ten"
+        case "11":
+            return "eleven"
+        case "12":
+            return "twelve";
+        case "13":
+            return "one";
+        case "14":
+            return "two";
+        case "15":
+            return "three";
+        case "16":
+            return "four";
+        case "17":
+            return "five";
+        case "18":
+            return "six";
+        case "19":
+            return "seven";
+    }
 }
 
 function hourConversionHelper(hour) {
@@ -53,27 +97,29 @@ function hourConversionHelper(hour) {
     case 12:
       return "twelve";
     case 13:
-      return "thirteen";
+      return "one";
     case 14:
-      return "fourteen";
+      return "two";
     case 15:
-      return "fifteen";
+      return "three";
     case 16:
-      return "sixteen";
+      return "four";
     case 17:
-      return "seventeen";
+      return "five";
     case 18:
-      return "eighteen";
+      return "six";
     case 19:
-      return "nineteen";
+      return "seven";
     case 20:
-      return "twenty";
+      return "eight";
     case 21:
-      return "twenty-one";
+      return "nine";
     case 22:
-      return "twenty-two";
+      return "ten";
     case 23:
-      return "twenty-three";
+      return "eleven";
+    case 24:
+      return "twelve";
     default:
       return hour;
   }
