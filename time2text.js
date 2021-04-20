@@ -4,7 +4,7 @@ function time2text(time) {
   let [hourString, minutesString] = time.split(":");
 
   let hour = parseInt(hourString);
-//   let minutes = parseInt(minutesString);
+  //   let minutes = parseInt(minutesString);
 
   let hourConvert = hourConversionHelper(hour);
   let minuteConvert = minuteConversionHelper(minutesString);
@@ -27,47 +27,85 @@ function time2text(time) {
   }
 }
 
-function minuteConversionHelper(minutes){
-    switch(minutes){
-        case "01":
-            return "oh one"
-        case "02":
-            return "oh two"
-        case "03":
-            return "oh three"
-        case "04":
-            return "oh four"
-        case "05":
-            return "oh five"
-        case "06":
-            return "oh six"
-        case "07":
-            return "oh seven"
-        case "08":
-            return "oh eight"
-        case "09":
-            return "oh nine"
-        case "10":
-            return "ten"
-        case "11":
-            return "eleven"
-        case "12":
-            return "twelve";
-        case "13":
-            return "one";
-        case "14":
-            return "two";
-        case "15":
-            return "three";
-        case "16":
-            return "four";
-        case "17":
-            return "five";
-        case "18":
-            return "six";
-        case "19":
-            return "seven";
+function minuteConversionHelper(minutes) {
+  if (minutes <= 19) {
+    switch (minutes) {
+      case "01":
+        return "oh one";
+      case "02":
+        return "oh two";
+      case "03":
+        return "oh three";
+      case "04":
+        return "oh four";
+      case "05":
+        return "oh five";
+      case "06":
+        return "oh six";
+      case "07":
+        return "oh seven";
+      case "08":
+        return "oh eight";
+      case "09":
+        return "oh nine";
+      case "10":
+        return "ten";
+      case "11":
+        return "eleven";
+      case "12":
+        return "twelve";
+      case "13":
+        return "thirteen";
+      case "14":
+        return "fourteen";
+      case "15":
+        return "fifteen";
+      case "16":
+        return "sixteen";
+      case "17":
+        return "seventeen";
+      case "18":
+        return "eighteen";
+      case "19":
+        return "nineteen";
     }
+  } else if (minutes > 19) {
+    let secondMinuteNumber = minutes[1];
+
+    switch (minutes[0]) {
+      case "2":
+        return "twenty-" + secondMinuteConversionHelper(minutes[1]);
+      case "3":
+        return "thirty-" + secondMinuteConversionHelper(minutes[1]);
+      case "4":
+        return "forty-" + secondMinuteConversionHelper(minutes[1]);
+      case "5":
+        return "fifty-" + secondMinuteConversionHelper(minutes[1]);
+    }
+  }
+}
+
+function secondMinuteConversionHelper(minuteNumber) {  
+  switch (minuteNumber) {
+    case "1":
+      return "one";
+    case "2":
+      return "two";
+    case "3":
+      return "three";
+    case "4":
+      return "four";
+    case "5":
+      return "five";
+    case "6":
+      return "six";
+    case "7":
+      return "seven";
+    case "8":
+      return "eight";
+    case "9":
+      return "nine";
+  }
 }
 
 function hourConversionHelper(hour) {
