@@ -25,19 +25,19 @@ function time2text(time) {
       // morning and quarter past
       return `five past ${hourConvert} in the morning`;
     }
-  } else if (minutesString === "10") {
+  } else if (minutesString === "10" || minutesString === "20") {
     if (hourString === "00") {
-      return "ten past midnight";
+      return `${minuteConvert} past midnight`;
     } else if (hour === 12) {
-      return "ten past noon";
+      return `${minuteConvert} past noon`;
     } else if (hour >= 18) {
-      return `ten past ${hourConvert} in the evening`;
+      return `${minuteConvert} past ${hourConvert} in the evening`;
     } else if (hour > 12) {
       // afternoon and quarter past
-      return `ten past ${hourConvert} in the afternoon`;
+      return `${minuteConvert} past ${hourConvert} in the afternoon`;
     } else if (hour < 12) {
       // morning and quarter past
-      return `ten past ${hourConvert} in the morning`;
+      return `${minuteConvert} past ${hourConvert} in the morning`;
     }
   } else if (minutesString === "15") {
     if (hour === 12) {
@@ -52,20 +52,6 @@ function time2text(time) {
     } else if (hour < 12) {
       // morning and quarter past
       return `quarter past ${hourConvert} in the morning`;
-    }
-  } else if (minutesString === "20") {
-    if (hour === 12) {
-      return "twenty past noon";
-    } else if (hourString === "00") {
-      return "twenty past midnight";
-    } else if (hour > 17) {
-      return `twenty past ${hourConvert} in the evening`;
-    } else if (hour > 12) {
-      // afternoon and quarter past
-      return `twenty past ${hourConvert} in the afternoon`;
-    } else if (hour < 12) {
-      // morning and quarter past
-      return `twenty past ${hourConvert} in the morning`;
     }
   } else if (minutesString === "30") {
     if (hour >= 18) {
